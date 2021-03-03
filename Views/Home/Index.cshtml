@@ -1,0 +1,14 @@
+﻿@model List<EcommerceApp2259.Models.Product>;
+
+<div id="main_content">
+    @await Html.PartialAsync("Components/NavigationBar")
+    <!-- end of menu tab -->
+    <div class="crumb_navigation">Navigation: Home</div>
+    @await Html.PartialAsync("Components/CategoriesDisplay")
+    <!-- end of left content -->
+    <div class="center_content">
+        @await Html.PartialAsync("Components/ProductsShowcase", Model)
+    </div>
+    <!-- end of center content -->
+    @await Html.PartialAsync("Components/RightContent")
+</div>

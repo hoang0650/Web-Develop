@@ -1,0 +1,56 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<div id="menu_tab">
+    <div class="left_menu_corner"></div>
+    <ul class="menu">
+        <li>
+            <a class="nav1" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a class="nav2" asp-controller="Home" asp-action="Products">Products</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#" class="nav3">Specials</a>
+        </li>
+        <li class="divider"></li>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li>
+                <a class="nav4" asp-controller="Customer" asp-action="UserDetail">My account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a class="nav4" asp-controller="Customer" asp-action="SignOut">Sign out</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#" class="nav5">History</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a class="nav4" asp-controller="Customer" asp-action="Authentication">Sign Up / Sign In</a>
+            </li>
+        }
+        <li class="divider"></li>
+        
+        <li>
+            <a class="nav6" asp-controller="ContactUs" asp-action="Index">Contact Me</a>
+        </li>
+        <li class="divider"></li>
+        <li class="currencies">
+            Currencies
+            <select>
+                <option>US Dollar</option>
+                <option>Euro</option>
+            </select>
+        </li>
+    </ul>
+    <div class="right_menu_corner"></div>
+</div>

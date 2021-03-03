@@ -1,0 +1,23 @@
+@{
+    var manufacturers = ViewData["Manufacturers"] as List<Brand>;
+}
+
+@{
+    bool isEven = false;
+    string itemClass = "odd";
+
+    if (manufacturers != null)
+    {
+        <div class="title_box">Manufacturers</div>
+        <ul class="left_menu">
+            @foreach (var manufacturer in manufacturers)
+            {
+                <li class="@itemClass">
+                    <a asp-controller="Home" asp-action="Brand" asp-route-brandId="@manufacturer.BrandId">@manufacturer.Name</a>
+                </li>
+                isEven = !isEven;
+                itemClass = isEven ? "even" : "odd";
+            }
+        </ul>
+    }
+}
